@@ -12,16 +12,16 @@ public class Auction {
 @Id
     private Long id;
     private String title;
-    private String carMake;
+    private String carMaker;
     private String carModel;
     private String color;
     private BigDecimal price;
     private LocalDate endDate;
 
-    public Auction(Long id, String title, String carMake, String carModel, String color, BigDecimal price, LocalDate endDate) {
+    public Auction(Long id, String title, String carMaker, String carModel, String color, BigDecimal price, LocalDate endDate) {
         this.id = id;
         this.title = title;
-        this.carMake = carMake;
+        this.carMaker = carMaker;
         this.carModel = carModel;
         this.color = color;
         this.price = price;
@@ -45,11 +45,11 @@ public class Auction {
     }
 
     public String getCarMake() {
-        return carMake;
+        return carMaker;
     }
 
     public void setCarMake(String carMake) {
-        this.carMake = carMake;
+        this.carMaker = carMake;
     }
 
     public String getCarModel() {
