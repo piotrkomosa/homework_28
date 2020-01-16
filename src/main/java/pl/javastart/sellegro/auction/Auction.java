@@ -83,4 +83,6 @@ public class Auction {
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
+
+
 }
