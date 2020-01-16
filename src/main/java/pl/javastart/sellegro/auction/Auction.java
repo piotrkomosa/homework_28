@@ -1,10 +1,15 @@
 package pl.javastart.sellegro.auction;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
+@Entity
 public class Auction {
-
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Id
     private Long id;
     private String title;
     private String carMake;

@@ -63,6 +63,9 @@ public class AuctionService {
     public List<Auction> findAllForFilters(AuctionFilters auctionFilters) {
         return auctions.stream()
                 .filter(auction -> auctionFilters.getTitle() == null || auction.getTitle().toUpperCase().contains(auctionFilters.getTitle().toUpperCase()))
+                .filter(auction -> auctionFilters.getCarMaker() == null || auction.getCarMake().toUpperCase().contains(auctionFilters.getCarMaker().toUpperCase()))
+                .filter(auction -> auctionFilters.getCarModel() == null || auction.getCarModel().toUpperCase().contains(auctionFilters.getCarModel().toUpperCase()))
+                .filter(auction -> auctionFilters.getColor() == null || auction.getColor().toUpperCase().contains(auctionFilters.getColor().toUpperCase()))
                 .collect(Collectors.toList());
     }
 
@@ -72,7 +75,12 @@ public class AuctionService {
             comparator = Comparator.comparing(Auction::getTitle);
         } else if(sort.equals("price")) {
             comparator = Comparator.comparing(Auction::getPrice);
+        }else if(sort.equals("color")) {
+            comparator = Comparator.comparing(Auction::getColor);
+        } else if(sort.equals("endDate")) {
+            comparator = Comparator.comparing(Auction::getEndDate);
         }
+
 
         return auctions.stream()
                 .sorted(comparator)
